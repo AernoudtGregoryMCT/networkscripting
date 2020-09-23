@@ -8,8 +8,16 @@ Student 1:	Aernoudt Gregory
 
 	LAN Network	192.168.1.0/24
 pfsense:	192.168.1.1
-DC1:		192.168.1.105/24 (dhcp)
+DC1:		192.168.1.2/24 (static)
+
+	WAN Network	
+pfsense:	172.23.82.86	
 
 
 	Passwords
 Password servers:	P@ssw0rd
+
+git clone
+https://github.com/AernoudtGregoryMCT/networkscripting.git
+
+git --version
