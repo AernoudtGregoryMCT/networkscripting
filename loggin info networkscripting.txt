@@ -1,0 +1,15 @@
+
+VMware Workstation
+Server name:	172.23.80.10
+User name:	win01
+Password:	sz8~mdtB
+Student 1:	Aernoudt Gregory
+
+
+	LAN Network	192.168.1.0/24
+pfsense:	192.168.1.1
+DC1:		192.168.1.105/24 (dhcp)
+
+
+	Passwords
+Password servers:	P@ssw0rd
