@@ -10,14 +10,23 @@ Student 1:	Aernoudt Gregory
 pfsense:	192.168.1.1
 DC1:		192.168.1.2/24 (static)
 
+
 	WAN Network	
 pfsense:	172.23.82.86	
+
 
 
 	Passwords
 Password servers:	P@ssw0rd
 
-git clone
-https://github.com/AernoudtGregoryMCT/networkscripting.git
 
+	GitHub
 git --version
+
+git clone https://github.com/AernoudtGregoryMCT/networkscripting.git
+
+git add .
+git commit -m "update info"
+git push
+
+git pull
