@@ -3,6 +3,9 @@
 #Check the current zones
     Get-DnsServerZone
 
+#Geen DNS forwarders ingegeven TO DO!!!
+    #TO DO
+
 #Add a reverse DNS lookup zone
     Add-DnsServerPrimaryZone -NetworkID "192.168.1.0/24" -ReplicationScope Domain
 
