@@ -33,10 +33,11 @@ Enter-PSSession -ComputerName 192.168.1.3 -Credential (Get-Credential "intranet.
         Install-ADDSDomainController -DomainName "intranet.mijnschool.be" -InstallDns:$true -Credential (Get-Credential "administrator@intranet.mijnschool.be") -NoGlobalCatalog:$false -NoRebootOnCompletion:$false -Force:$true
             # DNS optie werd toegevoegd.
                     
-# Replication from DC1
+    # Replication from DC1 test
+        Get-ADReplicationPartnerMetadata -Target DC2
 
 
 
 #endregion
 
-# Nu hebben we een 2de domain controller die dezelfde active directory database beheren
+# Nu hebben we een 2de domain controller die dezelfde active directory database beheren en replication voorziet.
