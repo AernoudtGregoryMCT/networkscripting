@@ -10,7 +10,7 @@ Invoke-Command -Computer $computer -ScriptBlock {
     ############ CREATE HOME SHARE WITH NTFS RIGHTS ############
     # region homeshare
     $masterPath = "C:\#SMB-Shares\"
-    $homeShare = "Homes"
+    $homeShare = "homedirs"
     $homePath = $masterPath + $homeShare
     # Check if the MasterPath is created, if not create it
     try {
