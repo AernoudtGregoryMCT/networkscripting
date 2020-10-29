@@ -9,10 +9,12 @@ $groupMembers = Import-Csv -Path "C:\Users\Administrator\Downloads\intranet.mijn
 ############ GROUPMEMBERS ############
 #region ad AD users to groups
 foreach ($groupMember in $groupMembers) {
-  
+    try {
         Add-ADGroupMember -Identity $groupMember.Identity -Members $groupMember.Member
-    
-
- 
+    }
+    catch {
+        Write-Host "User $user already exists."
+        Write-Host "Not creating this, skip to other user."
+    }
 }
 #endregion
