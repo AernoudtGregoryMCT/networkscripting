@@ -3,21 +3,23 @@
 <#
     This script will change the hostname of the server.
 #>
+
+
 ############ GLOBAL VARIABLES ############
-$computer = "192.168.1.4"
-$credential = "intranet.mijnschool.be\administrator"
+$computer = "192.168.1.12"
+$credential = "Administrator"
 
-Set-item WSMAN:\Localhost\Client\TrustedHosts -value 192.168.1.4
+Set-item WSMAN:\Localhost\Client\TrustedHosts -value 192.168.1.12
 
-Invoke-Command -Computer $computer -Credential (Get-Credential $credential) -ScriptBlock {
+Invoke-Command -Computer $computer -Credential (Get-Credential $credential) -ScriptBlock { 
     ############ GLOBAL VARIABLES ############
-    $hostnameMS = "MS"
+    $hostnameDC2 = "DC2"
     ############ CONFIGURE COMPUTERNAME ############
     #region configure computername
     try {
-        if ($env:COMPUTERNAME -notlike $hostnameMS) {
-            Rename-Computer -NewName $hostnameMS
-            Write-Information("Computername was changed to $hostnameMS.")
+        if ($env:COMPUTERNAME -notlike $hostnameDC2) {
+            Rename-Computer -NewName $hostnameDC2
+            Write-Information("Computername was changed to $hostnameDC2.")
             Write-Information("Pleasse reboot the computer now, before running the other parts of this script!")
         }
         else {

@@ -5,7 +5,7 @@
 #>
 ############ GLOBAL VARIABLES ############
 $computer = "192.168.1.4"
-$credential = "intranet.mijnschool.be\administrator"
+$credential = "Administrator"
 
 Invoke-Command -Computer $computer -Credential (Get-Credential $credential) -ScriptBlock { 
     ############ ACTIVATE REMOTE DESKTOP ############

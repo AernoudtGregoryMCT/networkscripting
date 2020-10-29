@@ -9,9 +9,9 @@ $computer = "MS"
 Invoke-Command -Computer $computer -ScriptBlock { 
     ############ CREATE HOME SHARE WITH NTFS RIGHTS ############
     # region homeshare
-    $masterPath = "C:\#SMB-Shares\"
+    $masterPath = "C:\#SMB-Shares\" 
     $homeShare = "homedirs"
-    $homePath = $masterPath + $homeShare
+    $homePath = $masterPath + $homeShare #c:\#SMB-Shares\homedirs
     # Check if the MasterPath is created, if not create it
     try {
         if (-not (Test-Path -LiteralPath $homePath )) {
@@ -30,14 +30,14 @@ Invoke-Command -Computer $computer -ScriptBlock {
         # Creating the share
         New-SmbShare -Name $homeShare -Path $homePath -FullAccess everyone -ErrorAction SilentlyContinue
                 
-        $acl = Get-Acl $homePath
-        $rule1 = New-Object System.Security.AccessControl.FileSystemAccessRule("Administrators","FullControl", "ContainerInherit, ObjectInherit", "None", "Allow")
+        $acl = Get-Acl $homePath #c:\#SMB-Shares\homedirs
+        $rule1 = New-Object System.Security.AccessControl.FileSystemAccessRule("Administrators","FullControl", "ContainerInherit, ObjectInherit", "None", "Allow") #opbouw van de rule
         $acl.AddAccessRule($rule1)
         
         $rule2 = New-Object System.Security.AccessControl.FileSystemAccessRule("Authenticated Users","ReadAndExecute", "None", "NoPropagateInherit", "Allow")
-        $acl.AddAccessRule($rule2)
+        $acl.AddAccessRule($rule2) #c:\#SMB-Shares\homedirs Onze homefolder met 2de rule voor de Authenticated users.
         
-        Set-Acl $homePath $acl
+        Set-Acl $homePath $acl #c:\#SMB-Shares\homedirs set
     }
     catch {
         Write-Host "Creating $homeShare was unsucessful."

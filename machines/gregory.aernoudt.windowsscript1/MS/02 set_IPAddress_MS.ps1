@@ -1,4 +1,4 @@
-﻿#SCRIPT EXECUTION
+#SCRIPT EXECUTION
 #USAGE OF THIS SCRIPT
 <#
     This script will configure a static IP on a wired NIC.
